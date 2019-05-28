@@ -19,6 +19,8 @@ namespace UpcomingMovies.Api
 {
     public class Startup
     {
+        const string AllowLocalAngularForDevelopmentCorsPolicy = "_allowOriginsInDebug";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +33,15 @@ namespace UpcomingMovies.Api
         {
             services.AddMvc();
             services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddCors(options =>
+            {
+                options.AddPolicy(AllowLocalAngularForDevelopmentCorsPolicy,
+                builder =>
+                {
+                    builder.WithOrigins("http://*:4200");
+                });
+            });
+            
             ConfigureDependencyInjection(services);
         }
 
@@ -39,9 +50,10 @@ namespace UpcomingMovies.Api
         {
             if (env.IsDevelopment())
             {
+                app.UseCors(AllowLocalAngularForDevelopmentCorsPolicy);
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
