@@ -10,6 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using UpcomingMovies.Domain.Interfaces;
+using UpcomingMovies.Application;
+using UpcomingMovies.Infrastructure.Repositories;
+using UpcomingMovies.Infrastructure.TMDbApi;
 
 namespace UpcomingMovies.Api
 {
@@ -26,6 +30,8 @@ namespace UpcomingMovies.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddRouting(options => options.LowercaseUrls = true);
+            ConfigureDependencyInjection(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +45,16 @@ namespace UpcomingMovies.Api
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+        }
+
+        private void ConfigureDependencyInjection(IServiceCollection services)
+        {
+            const string tmdbApiPath = "https://api.themoviedb.org/3";
+            const string tmdbApiKey = "1f54bd990f1cdfb230adb312546d765d";
+
+            services.AddSingleton(new TMDbApiConfiguration(tmdbApiPath, tmdbApiKey));
+            services.AddTransient<ITMDbService, TMDbService>();
+            services.AddScoped<ITMDbRepository, TMDbRepository>();
         }
     }
 }
