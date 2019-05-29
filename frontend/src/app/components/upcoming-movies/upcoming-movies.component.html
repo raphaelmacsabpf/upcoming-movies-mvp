@@ -1,7 +1,19 @@
-<div *ngIf="upcomingMovies != null">
-    <a *ngFor="let result of upcomingMovies.results" class="card-container">
-        <mat-card class="upcoming-movie-card">
-            {{result.title}}
-        </mat-card>
-    </a>
-</div>
+<section class="upcoming-movies-section">
+    <div *ngIf="upcomingMovies != null" class="upcoming-movies-container">
+        <a *ngFor="let result of upcomingMovies.results" class="card-container">
+            <mat-card class="upcoming-movie-card">
+                <mat-card-header>
+                    <mat-card-title>{{result.title}}</mat-card-title>
+                    <mat-card-subtitle>Release date: {{result.releaseDate}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{baseUrlToImages}}{{result.posterPath}}" alt="Photo of a Shiba Inu">
+                <mat-card-content class="genres-container">
+                    Genres: {{joinGenres(result.genres)}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>More Info</button>
+                </mat-card-actions>
+            </mat-card>
+        </a>
+    </div>
+</section>

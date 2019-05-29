@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UpcomingMoviesService } from 'src/app/services/upcoming-movies.service';
 import { UpcomingMovies } from 'src/app/models/upcoming-movies';
 import { ActivatedRoute } from "@angular/router";
+import { Genre } from 'src/app/models/genre';
 
 @Component({
   selector: 'upcoming-movies',
@@ -11,9 +12,11 @@ import { ActivatedRoute } from "@angular/router";
 
 export class UpcomingMoviesComponent {
   upcomingMovies: UpcomingMovies;
+  baseUrlToImages: string = "https://image.tmdb.org/t/p/w500";
   private routeSubscription: any;
   private upcomingMoviesServiceSubscription: any;
   private pageId: number;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -36,5 +39,9 @@ export class UpcomingMoviesComponent {
   ngOnDestroy() {
     this.routeSubscription.unsubscribe();
     this.upcomingMoviesServiceSubscription.unsubscribe();
+  }
+
+  public joinGenres(genres: Genre[]) {    
+    return genres.map(genre => genre.name).join(", ");
   }
 }
