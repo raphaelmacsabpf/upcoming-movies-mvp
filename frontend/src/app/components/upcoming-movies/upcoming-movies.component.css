@@ -23,8 +23,15 @@
 mat-card-title {
     font-weight: bold;
 }
+
 mat-card-subtitle {
     color: grey;
+    font-size: 11px;
+}
+
+.mat-button {
+    background: #ef2f64;
+    color: white;
 }
 
 @media (max-width:650px){
