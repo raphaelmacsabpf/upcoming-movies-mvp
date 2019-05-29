@@ -5,12 +5,15 @@ import { UpcomingMovies } from "../models/upcoming-movies";
  
 @Injectable()
 export class UpcomingMoviesService {
+   public responseCache = new Map();
    constructor(private http: Http) {
       
    }
  
-   getUpcomingMovies(page: number): Observable<UpcomingMovies[]> {
-      return this.http.get(`http://localhost/api/upcomingmovies/${page}`)
+   getUpcomingMovies(pageId: number): Observable<UpcomingMovies> {
+      const urlToFetch = `http://localhost/api/upcomingmovies/${pageId}`;
+
+      return this.http.get(urlToFetch)
          .map((res: Response) => res.json())
          .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
    }

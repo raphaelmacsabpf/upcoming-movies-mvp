@@ -2,10 +2,10 @@ export class Result {
     constructor(
        public id: number,
        public title: string,
-       public poster_path: string,
+       public posterPath: string,
        public genres: string[],
-       public backdrop_path: string,
+       public backdropPath: string,
        public overview: string,
-       public release_date: string
+       public releaseDate: string
     ) {}
  }

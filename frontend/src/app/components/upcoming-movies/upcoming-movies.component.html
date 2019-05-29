@@ -1,0 +1,7 @@
+<div *ngIf="upcomingMovies != null">
+    <a *ngFor="let result of upcomingMovies.results" class="card-container">
+        <mat-card class="upcoming-movie-card">
+            {{result.title}}
+        </mat-card>
+    </a>
+</div>
