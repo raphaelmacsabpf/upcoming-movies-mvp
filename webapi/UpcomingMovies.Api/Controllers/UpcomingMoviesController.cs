@@ -40,16 +40,12 @@ namespace UpcomingMovies.Api.Controllers
             var mapperConfiguration = new MapperConfiguration(configuration =>
             {
                 configuration.CreateMap<ResultModel, ResultViewModel>()
-                    .ForMember(viewModel => viewModel.genres, cfg => cfg.Ignore())
-                    .ForMember(viewModel => viewModel.backdrop_path, cfg => cfg.MapFrom(model => model.BackdropPath))
-                    .ForMember(viewModel => viewModel.poster_path, cfg => cfg.MapFrom(model => model.PosterPath))
-                    .ForMember(viewModel => viewModel.release_date, cfg => cfg.MapFrom(model => model.ReleaseDate))
+                    .ForMember(viewModel => viewModel.Genres, cfg => cfg.Ignore())
                     .AfterMap((model, viewModel) =>
                     {
-                        viewModel.genres = model.Genres.Select(g => g.Name).ToList();
+                        viewModel.Genres = model.Genres.Select(g => g.Name).ToList();
                     });
-                configuration.CreateMap<UpcomingMoviesModel, UpcomingMoviesViewModel>()
-                    .ForMember(viewModel => viewModel.total_pages, cfg => cfg.MapFrom(model => model.TotalPages));
+                configuration.CreateMap<UpcomingMoviesModel, UpcomingMoviesViewModel>();
             });
 
             var mapper = new Mapper(mapperConfiguration);

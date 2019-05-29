@@ -7,8 +7,8 @@ namespace UpcomingMovies.Api.ViewModels
 {
     public class UpcomingMoviesViewModel
     {
-        public List<ResultViewModel> results { get; set; }
-        public int page { get; set; }
-        public int total_pages { get; set; }
+        public List<ResultViewModel> Results { get; set; }
+        public int Page { get; set; }
+        public int TotalPages { get; set; }
     }
 }

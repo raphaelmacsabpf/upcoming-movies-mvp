@@ -14,6 +14,7 @@ using UpcomingMovies.Domain.Interfaces;
 using UpcomingMovies.Application;
 using UpcomingMovies.Infrastructure.Repositories;
 using UpcomingMovies.Infrastructure.TMDbApi;
+using Newtonsoft.Json.Serialization;
 
 namespace UpcomingMovies.Api
 {
@@ -31,14 +32,18 @@ namespace UpcomingMovies.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions((jsonOptions) =>
+            {
+                jsonOptions.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddCors(options =>
             {
                 options.AddPolicy(AllowLocalAngularForDevelopmentCorsPolicy,
                 builder =>
                 {
-                    builder.WithOrigins("http://*:4200");
+                    builder.AllowAnyOrigin();
                 });
             });
             

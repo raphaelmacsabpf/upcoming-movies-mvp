@@ -7,12 +7,12 @@ namespace UpcomingMovies.Api.ViewModels
 {
     public class ResultViewModel
     {
-        public int id { get; set; }
-        public string title { get; set; }
-        public string poster_path { get; set; }
-        public List<string> genres { get; set; }
-        public string backdrop_path { get; set; }
-        public string overview { get; set; }
-        public string release_date { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string PosterPath { get; set; }
+        public List<string> Genres { get; set; }
+        public string BackdropPath { get; set; }
+        public string Overview { get; set; }
+        public string ReleaseDate { get; set; }
     }
 }
