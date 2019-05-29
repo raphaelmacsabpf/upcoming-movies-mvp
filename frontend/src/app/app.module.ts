@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { MatCardModule, MatButtonModule} from '@angular/material';
+import { MatCardModule, MatButtonModule, MatIconModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +19,8 @@ import { UpcomingMoviesService } from './services/upcoming-movies.service';
     HttpModule,
     AppRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [UpcomingMoviesService],
   bootstrap: [AppComponent]
