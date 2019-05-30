@@ -1,6 +1,12 @@
+<div class="search-bar-container">
+    <div class=search-bar>
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="text" class="search-input-text" placeholder="Search from upcoming movies"/>
+    </div>
+</div>
 <section class="upcoming-movies-section">
     <div *ngIf="upcomingMovies != null" class="upcoming-movies-container">
-        <a *ngFor="let result of upcomingMovies.results" class="card-container">
+        <div *ngFor="let result of upcomingMovies.results" class="card-container">
             <mat-card class="upcoming-movie-card">
                 <mat-card-header>
                     <mat-card-title>{{result.title}}</mat-card-title>
@@ -11,9 +17,9 @@
                     Genres: {{joinGenres(result.genres)}}
                 </mat-card-content>
                 <mat-card-actions>
-                    <button mat-button>More Info</button>
+                    <button mat-button (click)="goToDetails(result)">More Info</button>
                 </mat-card-actions>
             </mat-card>
-        </a>
+        </div>
     </div>
 </section>

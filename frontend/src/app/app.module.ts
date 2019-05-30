@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 
 import { UpcomingMoviesComponent} from './components/upcoming-movies/upcoming-movies.component';
 import { UpcomingMoviesService } from './services/upcoming-movies.service';
+import { UpcomingMovieDetailsComponent } from './components/upcoming-movie-details/upcoming-movie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpcomingMoviesComponent
+    UpcomingMoviesComponent,
+    UpcomingMovieDetailsComponent
   ],
   imports: [
     BrowserModule,

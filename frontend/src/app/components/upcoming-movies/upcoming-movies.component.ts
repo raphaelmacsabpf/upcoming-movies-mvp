@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { UpcomingMoviesService } from 'src/app/services/upcoming-movies.service';
 import { UpcomingMovies } from 'src/app/models/upcoming-movies';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Genre } from 'src/app/models/genre';
+import { Result } from 'src/app/models/result';
 
 @Component({
   selector: 'upcoming-movies',
@@ -20,7 +21,7 @@ export class UpcomingMoviesComponent {
 
   constructor(
     private route: ActivatedRoute,
-
+    private router: Router,
     private upcomingMoviesService: UpcomingMoviesService
   ) 
   { }
@@ -32,7 +33,7 @@ export class UpcomingMoviesComponent {
       }
 
       this.pageId = +routeParameters['pageId'];
-      this.upcomingMoviesService.getUpcomingMovies(this.pageId).subscribe(upcomingMovies => this.upcomingMovies = upcomingMovies);
+      this.upcomingMoviesServiceSubscription = this.upcomingMoviesService.getUpcomingMovies(this.pageId).subscribe(upcomingMovies => this.upcomingMovies = upcomingMovies);
     });
   }
 
@@ -43,5 +44,10 @@ export class UpcomingMoviesComponent {
 
   public joinGenres(genres: Genre[]) {    
     return genres.map(genre => genre.name).join(", ");
+  }
+
+  public goToDetails(upcomingMovie: Result) {
+    this.upcomingMoviesService.selectedUpcomingMovie = upcomingMovie;
+    this.router.navigate(['/details/', upcomingMovie.id]);
   }
 }
