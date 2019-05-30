@@ -50,4 +50,10 @@ export class UpcomingMoviesComponent {
     this.upcomingMoviesService.selectedUpcomingMovie = upcomingMovie;
     this.router.navigate(['/details/', upcomingMovie.id]);
   }
+  public getNavigationButtonsArray(){
+    return new Array(this.upcomingMovies.totalPages).fill(null).map((value, index) => index + 1);
+  }
+  public navigateTo(pageId: number) {
+    this.router.navigate(['/upcoming-movies/', pageId]);
+  }
 }

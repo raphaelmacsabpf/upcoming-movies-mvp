@@ -9,6 +9,22 @@
     justify-content: space-between;
 }
 
+.navigation-buttons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.navigation-button {
+    margin: 10px 8px;
+    padding: 10px 12px;
+    border: solid 1px #bbbbbb;
+    border-radius: 5px;
+    min-width: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
 .upcoming-movie-card {
     background: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -29,7 +45,7 @@ mat-card-subtitle {
     font-size: 11px;
 }
 
-.mat-button {
+.more-info {
     background: #ef2f64;
     color: white;
 }
