@@ -16,4 +16,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UpcomingMovies.Application\UpcomingMovies.Application.csproj" />
+    <ProjectReference Include="..\UpcomingMovies.Infrastructure\UpcomingMovies.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

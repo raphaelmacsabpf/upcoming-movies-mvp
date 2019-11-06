@@ -1,0 +1,17 @@
+.bar {
+    background: #ef2f64;
+    height: 60px;
+    line-height: 60px;
+    display: inherit;
+    font-weight: bold;
+    font-size: 24px;
+}
+.bar-title {
+    color: white;
+    text-align: center;
+}
+
+.footer {
+    background: #e6e6e6;
+    height: 100px;
+}

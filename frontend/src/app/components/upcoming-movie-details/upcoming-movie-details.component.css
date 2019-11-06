@@ -1,0 +1,49 @@
+.backdrop-image {
+    height: 650px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-details-card {
+    background: #000000e0;
+    color: white;
+    width: 900px;
+    box-shadow: 1px 0px 11px rgba(0, 0, 0, 0.52);
+}
+
+.movie-details-container {
+    display: flex;
+}
+
+.image-box {
+    display: grid;
+}
+
+.postcard {
+    width: 300px;
+}
+
+.movie-info {
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.movie-title {
+    text-align: center;
+    font-size: 35px;
+    color: #ef2f64;
+    font-weight: 600;
+}
+
+.movie-overview {
+    padding: 20px;
+    font-size: 18px;
+}
+
+.movie-secondary-info {
+    color: #ffffff52;
+    font-size: 18px;
+    padding: 10px 20px;
+}

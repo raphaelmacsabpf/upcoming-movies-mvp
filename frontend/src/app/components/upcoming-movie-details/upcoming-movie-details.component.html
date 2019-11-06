@@ -1,0 +1,23 @@
+<div [ngStyle]="{'background': 'url(' + baseUrlToImages + upcomingMovie.backdropPath + ') no-repeat center center', 'background-size': 'cover'}" class="backdrop-image">
+    <div class="movie-details-card">
+        <div class="movie-details-container">
+            <div class="image-box">
+                <img src="{{baseUrlToImages + upcomingMovie.posterPath}}" class="postcard"/>
+            </div>
+            <div class="movie-info">
+                <div class="movie-title">
+                    {{upcomingMovie.title}}
+                </div>
+                <div class="movie-secondary-info">
+                    Release date: {{upcomingMovie.releaseDate}}
+                </div>
+                <div class="movie-overview">
+                    {{upcomingMovie.overview}}
+                </div>
+                <div class="movie-secondary-info">
+                    Genres: {{formatGenres(upcomingMovie.genres)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
